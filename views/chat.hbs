@@ -34,82 +34,68 @@
     </section>
  -->
 
-    <div style="float:left;width:100px;border-right:1px solid black;height:300px;padding:10px;overflow:scroll-y;">
-    <b>USERS</b>
-    <div id="users"></div>
+<div style="float:left;width:100px;border-right:1px solid black;height:300px;padding:10px;overflow:scroll-y;">
+    <b>ROOMS</b>
+    <div id="rooms"></div>
 </div>
-<div style="float:left;width:550px;height:250px;overflow:scroll-y;padding:10px;">
+<div style="float:left;width:300px;height:250px;overflow:scroll-y;padding:10px;">
     <div id="conversation"></div>
     <input id="data" style="width:200px;" />
     <input type="button" id="datasend" value="send" />
 </div>
-
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript">
-var my_username = '';
-function send_individual_msg(id)
-{
-    //alert(id);
-    //alert(my_username);
-    socket.emit('check_user', my_username, id);
-    //socket.emit('msg_user', id, my_username, prompt("Type your message:"));
-}
-    var socket = io.connect('https://thawing-oasis-69493.herokuapp.com');   
+ <script>
+    var socket = io.connect('https://thawing-oasis-69493.herokuapp.com');
 
     // on connection to server, ask for user's name with an anonymous callback
     socket.on('connect', function(){
         // call the server-side function 'adduser' and send one parameter (value of prompt)
         socket.emit('adduser', prompt("What's your name?"));
     });
-    // listener, whenever the server emits 'msg_user_handle', this updates the chat body
-    socket.on('msg_user_handle', function (username, data) {
-        $('#conversation').append('<b>'+username + ':</b> ' + data + '<br>');           
-    });
-    
-    // listener, whenever the server emits 'msg_user_found'
-    socket.on('msg_user_found', function (username) {
-        //alert(username);
-        socket.emit('msg_user', username, my_username, prompt("Type your message:"));
-    });
+
     // listener, whenever the server emits 'updatechat', this updates the chat body
     socket.on('updatechat', function (username, data) {
         $('#conversation').append('<b>'+username + ':</b> ' + data + '<br>');
     });
-    
-    // listener, whenever the server emits 'store_username', this updates the username
-    socket.on('store_username', function (username) {
-        my_username = username;
-    }); 
-    // listener, whenever the server emits 'updateusers', this updates the username list
-    socket.on('updateusers', function(data) {
-        //alert(data);
-        //console.log(data);
-        $('#users').empty();
-        $.each(data, function(key, value) {
-            $('#users').append('<div style="cursor:pointer;" onclick="send_individual_msg(\''+value+'\')">' + key + '</div>');
+
+    // listener, whenever the server emits 'updaterooms', this updates the room the client is in
+    socket.on('updaterooms', function(rooms, current_room) {
+        $('#rooms').empty();
+        $.each(rooms, function(key, value) {
+            if(value == current_room){
+                $('#rooms').append('<div>' + value + '</div>');
+            }
+            else {
+                $('#rooms').append('<div><a href="#" onclick="switchRoom(\''+value+'\')">' + value + '</a></div>');
+            }
         });
     });
+
+    function switchRoom(room){
+        socket.emit('switchRoom', room);
+    }
+
     // on load of page
     $(function(){
         // when the client clicks SEND
         $('#datasend').click( function() {
             var message = $('#data').val();
-            if(message == '' || jQuery.trim(message).length == 0)
-            return false;
             $('#data').val('');
             // tell server to execute 'sendchat' and send along one parameter
             socket.emit('sendchat', message);
         });
+
         // when the client hits ENTER on their keyboard
         $('#data').keypress(function(e) {
             if(e.which == 13) {
                 $(this).blur();
-                //$('#datasend').focus().click();
-                $('#datasend').click();
+                $('#datasend').focus().click();
             }
         });
     });
+
 </script>
 </body>
 
 </html>
+

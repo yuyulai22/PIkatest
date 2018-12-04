@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome</title>
+      <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+      <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    {{> menubar}}
+
+  <div class="main-text hidden-xs">
+    <div class="col-md-12 text-left">
+      <h1 style="font-family: 'Lato'">PikaMe</h1>
+      <p style="font-family: 'Lato'"></p>Find your pokebuddy!
+    </div>
+  </div>
+  
+   
+      <form method="post" id = "loginform"action="/users/login"  enctype='application/x-www-form-urlencoded' class= "formclass">
+         <h2 class="page-header">Login</h2>
+      <p>Please login below</p>
+        <div class="form-group"></div>
+        <label>Username </label>
+        <input class="form-control" name="username" type="text" placeholder="Enter User name"/>
+        <div class="form-group"></div>
+        <label>Password</label>
+        <input class="form-control" name="password" type="password" placeholder="Enter password"/>
+        <br>
+        <input class="btn btn-primary" type="submit" name="submit" value="Login"/>
+      </form>
+</body>
+
+</html>

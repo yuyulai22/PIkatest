@@ -1,0 +1,351 @@
+@font-face {
+    font-family: "pokeFont";
+    src: url(/stylesheets/fonts/pokemon.ttf) format("truetype");
+}
+
+#message{
+  transition: opacity 3s;
+}
+
+
+ul.success li{
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	color: #3c763d;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+	list-style: none;
+}
+
+ul.error li{
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+	list-style: none;
+
+}
+
+form{
+	background-color: white;
+	padding: 10px;
+
+}
+
+
+
+.astext {
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+}
+
+
+
+.astext:hover{
+  color: #1943B7;
+  cursor: pointer;
+}
+
+.full-overlay{
+  position: relative;
+  z-index: 1;
+  height:350px;
+  text-align: center;
+  padding:40px;
+  background-size: cover;
+}
+
+.main-container{
+    width: 450px;
+    height: 200px;
+}
+.main-wrapper{
+    margin: auto;
+    background-color: #ccc;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+	background-image: url('https://i.redd.it/oexlfzwy78ex.png');
+	background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#loginform{
+  width: 35%;
+  background-color: #CAB08D;
+  margin: auto;
+  padding-left:20px;
+  padding-right:20px;
+  padding-bottom:15px;
+  padding-top: 2px;
+  border-radius: 20px;
+  position: absolute;
+  height: 54%;
+  right: 0px;
+  left: 0px ;
+  bottom: 0px;
+  top: 100px;
+}
+
+#regisform{
+   width: 35%;
+  background-color: #CAB08D;
+  margin: auto;
+  padding-left:20px;
+  padding-right:20px;
+  padding-bottom:15px;
+  padding-top: 2px;
+  border-radius: 20px;
+  position: absolute;
+  height: 68%;
+  right: 0px;
+  left: 0px ;
+  bottom: 0px;
+  top: 200px;
+}
+
+
+.containerindex{
+  width: 35%;
+  background-color: lightgrey;
+  margin: auto;
+  padding-left:20px;
+  padding-right:20px;
+  padding-bottom:15px;
+  padding-top: 2px;
+  border-radius: 20px;
+  position: absolute;
+  height: 54%;
+  right: 120px;
+  bottom: 0px;
+  top: 100px;
+}
+
+.main-text {
+position: absolute;
+top: 10%;
+width: 42%;
+color:black;
+font-weight: bold;
+font-size: 24px;
+left: 35%;
+}
+
+.main-text h1 {
+font-family: 'Montserrat', sans-serif;
+color: black;
+font-size: 75px;
+}
+
+#regisButt {
+  display: none;
+}
+/*this is for the login page*/
+
+/*Index page css*/
+
+#pokeDisplay {
+  height: 150px;
+  width: 100px;
+  position: relative;
+  display: inline-block;
+  margin: 25px;
+  text-align: center;
+  font-family: "pokeFont";
+  font-size: 12px;
+}
+
+#eggname{
+  font-family: 'Montserrat', sans-serif;
+  font: 4px;
+  color: red;
+  left: 240px;
+  position: absolute;
+}
+#display {
+  border: 1px solid black;
+  overflow-y: scroll;
+  height: 500px;
+  display: block;
+  position: relative;
+  left: -280px;
+  margin: auto;
+  font: 4px;
+  width: 500px;
+  top: 50px;
+  cursor: pointer;
+}
+
+ #display1 { display: none; }
+    #display1:target { display: block; }
+/*end of profile page css*/
+
+/*Match page*/
+/*#matches {
+  position: absolute;
+  width: 800px;
+  min-height: 150px;
+  left: 23%;
+  top: 30%;
+  display: table;
+}
+#matchpic {
+  display: table-cell;
+  position: relative;
+  background-color: red;
+  width: 200px;
+  height: 150px;
+  opacity: 0.2;
+}
+#matchtext {
+  display: table-cell;
+  position: relative;
+  background-color: green;
+  width: 600px;
+  height: 150px;
+  opacity: 0.2;
+}*/
+
+
+#matchDisplay{
+   height: 150px;
+  width: 50%;
+  position: relative;
+  display: inline-block;
+  margin: 25px;
+  text-align: center;
+  font-family: "pokeFont";
+  font-size: 12px;
+
+}
+
+#matchButton{
+  display: inline-block;
+}
+#resultArea{
+  border: 1px solid black;
+    overflow-y: scroll;
+
+  height: 400px;
+  display: block;
+  position: relative;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  font: 4px;
+  width: 70%;
+  top: 50px;
+  cursor: pointer;
+}
+
+/*End of match*/
+
+
+/*chat styles
+*/
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    height: 100%;
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Comfortaa', sans-serif;
+    margin: 0px;
+}
+
+div#change_username, section#input_zone {
+    border: 5px outset #8258FA;
+}
+
+div#change_username {
+    height: 3%;
+    display: inline-block;
+    background-color: #BCA9F5;
+}
+
+section#chatroom {
+    border: 5px inset #8258FA;
+    height: 85%;
+    overflow: auto;
+}
+
+section#input_zone {
+    height: 7%;
+    text-align: center;
+    background-color: #BCA9F5;
+}
+
+.vertical-align {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+input#username {
+    font-family: 'Comfortaa', sans-serif;
+}
+
+input#message {
+    display: inline-block;
+    width: 88%;
+    height: 70%;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 2vh;
+}
+
+button#send_message {
+    display: inline-block;
+    height: 70%;
+    width: 10%;
+}
+
+p.message {
+    margin: 0px;
+    width: 100%;
+    height: 40px;
+    font-size: 2vh;
+    font-family: 'Comfortaa', sans-serif;
+    padding: 1vh;
+}
+
+.message:nth-child(even) {
+    background-color: #81DAF5;
+}
+
+.message:nth-child(odd) {
+    background-color: #81BEF7;
+}

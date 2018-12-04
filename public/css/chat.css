@@ -1,0 +1,8 @@
+#chat {
+	height:500px;
+}
+
+#chatWrap {
+	float: left;
+	border:1px #000 solid;
+}

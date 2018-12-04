@@ -151,6 +151,8 @@ function check_key(v)
 	return val;
 }
 
+var sockets = {};
+
 app.get('/username', function(req,res) {
   console.log('getting all users...')
  
@@ -166,7 +168,14 @@ io.on('connection', (socket) => {
 	//default username
 
 	socket.username = currUser;
+	socket.join('some room');
 
+	console.log(socket.id, "is connected");
+
+    socket.join("RoomName");
+
+    // Here, message is an event name and you can pass your data in second parameter
+    io.in("RoomName").emit("message", {"data": "Hello All!"});
 	//listen on new_message
 	// socket.on('new_message', (data) => {
 	// 	//broadcast the new message

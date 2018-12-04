@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="shortcut icon" href="favicon.ico" />
     <meta charset="utf-8">
     <title>Matching</title>
       <link rel="stylesheet" href="/stylesheets/bootstrap.css">
@@ -11,16 +12,17 @@
 
 <body>
     {{> menubar}}
-    <a href="/testchat">Testchat testing</a>
-      <h2 id = "position">Match Page</h2>
-      <button class="btn btn-primary" id="matchbtn">Click here to load users</button>
+    <div id='leftbar'></div>
+    <div id='rightbar'></div>
+    <div id='pokebuddy' class='img1'></div>
     <div id="matches">
+      <h2 id="position" class='page-header'>Match Page</h2>
+      <button class="btn btn-primary" id="matchbtn">Click Here to Load Users</button>
       <div id="matchpic"></div>
       <div id="matchtext"></div>
+      <div id="resultArea"></div>
     </div>
-      <div id ='outerResult'>
-        <div id = "resultArea"></div>
-      </div>
+    
 </body>
 <script src="/javascript/matchpage.js"></script>
 

@@ -1,24 +1,24 @@
 <menubar>
-  <div class="navbar navbar-default" role="navigation">
+  <div class="navbar pokenav navbar-default" role="navigation">
     <div class="container">
-      <div class="navbar-header">
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="#">PikaMe</a>
+      <div id="Pikabutt" class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" id="Pikaamebutt" href="#">PikaMe</a>
       </div>
       <div class="navbar-collapse collapse">
         
         <ul class="nav navbar-nav navbar-right">
         {{#if user}}
            <li>
-            <a href="/users/logout">Logout</a>
+            <a id="logoutButt" href="/users/logout" id="logoutButt">Logout</a>
           </li>
         </ul>
         {{else}}
         <ul class="nav navbar-nav">
           <li>
-            <a href="/users/register">Register</a>
+            <a id="registerbutt" href="/users/register">Register</a>
           </li>
           <li>
-            <a href="/users/login">Login</a>
+            <a id="loginbutt" href="/users/login">Login</a>
          </li>
         </ul>
         {{/if}}

@@ -7,6 +7,9 @@
   transition: opacity 3s;
 }
 
+.pokenav {
+  z-index: 999;
+}
 
 ul.success li{
 	padding: 15px;
@@ -76,14 +79,14 @@ a{
 }
 
 body{
-	background-image: url('https://i.redd.it/oexlfzwy78ex.png');
+	background-image: url('https://wallpapercave.com/wp/wp1833583.jpg');
 	background-repeat: no-repeat;
     background-size: cover;
 }
 
 #loginform{
   width: 35%;
-  background-color: #CAB08D;
+  background-color: #81BEF7;
   margin: auto;
   padding-left:20px;
   padding-right:20px;
@@ -91,45 +94,77 @@ body{
   padding-top: 2px;
   border-radius: 20px;
   position: absolute;
-  height: 54%;
-  right: 0px;
-  left: 0px ;
+  height: 45vh;
+  left:20%;
   bottom: 0px;
-  top: 100px;
+  top: 110px;
+}
+
+#leftbar {
+    top:0px;
+    left:0px;
+    height:100vh;
+    width:15vw;
+    position:absolute;
+    background-image: url('https://i.pinimg.com/originals/ea/0a/a3/ea0aa3d19fba8a802cc00a3af3d6d1e5.jpg');
+    background-size:cover;
+}
+
+#rightbar {
+    top: 0px;
+    right:0px;
+    height: 100vh;
+    width: 15vw;
+    position: absolute;
+    background-image: url('https://i.pinimg.com/originals/ea/0a/a3/ea0aa3d19fba8a802cc00a3af3d6d1e5.jpg');
+    background-size:cover;
+    transform :scaleX(-1);
+}
+
+#pokebuddy {
+    height:20%;
+    width:20%;
+    top:8%;
+    left:27%;
+    position: absolute ;
+}
+
+.img1 {
+    background-image:url('/img/PikaMe.png');
+    background-size:100% 100%;
+    background-repeat: no-repeat;
 }
 
 #regisform{
-   width: 35%;
-  background-color: #CAB08D;
+  width: 35%;
+  background-color: #81BEF7;
   margin: auto;
   padding-left:20px;
   padding-right:20px;
-  padding-bottom:15px;
   padding-top: 2px;
   border-radius: 20px;
-  position: absolute;
-  height: 68%;
-  right: 0px;
-  left: 0px ;
+  position: relative;
+  height: auto;
+  left:-12%;
   bottom: 0px;
-  top: 200px;
+  top: 22%;
 }
 
 
 .containerindex{
   width: 35%;
-  background-color: lightgrey;
+  background-color: #81BEF7;
   margin: auto;
   padding-left:20px;
   padding-right:20px;
-  padding-bottom:15px;
   padding-top: 2px;
+  padding-bottom:30px;
   border-radius: 20px;
-  position: absolute;
-  height: 54%;
-  right: 120px;
-  bottom: 0px;
-  top: 100px;
+  position: relative;
+  height: auto;
+  left:-12.5%;
+  bottom:0%;
+  top: 22%;
 }
 
 .main-text {
@@ -172,19 +207,22 @@ font-size: 75px;
   color: red;
   left: 240px;
   position: absolute;
+  opacity: 0;
 }
 #display {
-  border: 1px solid black;
+  border: solid 1px black;
   overflow-y: scroll;
-  height: 500px;
+  height: 30vh;
   display: block;
   position: relative;
-  left: -280px;
+  left: 0%;
   margin: auto;
   font: 4px;
-  width: 500px;
-  top: 50px;
   cursor: pointer;
+}
+
+#pokeName {
+    display:inline-block;
 }
 
  #display1 { display: none; }
@@ -219,8 +257,9 @@ font-size: 75px;
 
 
 #matchDisplay{
-   height: 150px;
-  width: 50%;
+  display: inline-block;
+  height: 140px;
+  width: 45%;
   position: relative;
   display: inline-block;
   margin: 25px;
@@ -229,24 +268,47 @@ font-size: 75px;
   font-size: 12px;
 
 }
+#Pikaamebutt {
+    color:aliceblue;
+}
+
+#loginbutt {
+    color:aliceblue;
+}
+
+#logoutButt {
+    color:aliceblue;
+}
+
+#registerbutt {
+    color:aliceblue;
+}
+
+#PikaButt {
+    color: aliceblue;
+}
+
+.navbar {
+    background-color:#81BEF7;
+}
 
 #matchButton{
   display: inline-block;
 }
-#resultArea{
-  border: 1px solid black;
-    overflow-y: scroll;
 
-  height: 400px;
-  display: block;
-  position: relative;
-  left: 0px;
-  right: 0px;
-  margin: auto;
-  font: 4px;
-  width: 70%;
-  top: 50px;
-  cursor: pointer;
+#resultArea{
+ border:solid 1px black;
+ overflow-y: scroll;
+ height: 70%;
+ display: block;
+ position: relative;
+
+ left: 0px;
+ margin: auto;
+ font: 4px;
+ width: 100%;
+ top: 10px;
+ cursor: pointer;
 }
 
 /*End of match*/
@@ -297,7 +359,7 @@ div#change_username {
 
 section#chatroom {
     border: 5px inset #8258FA;
-    height: 85%;
+    height: 79%;
     overflow: auto;
 }
 
@@ -348,4 +410,21 @@ p.message {
 
 .message:nth-child(odd) {
     background-color: #81BEF7;
+}
+
+#matches {
+    width: 35%;
+    background-color: #81BEF7;
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 60px;
+    padding-top: 2px;
+    border-radius: 20px;
+    position: relative;
+    height: 55vh;
+    left: -13%;
+    bottom: 0px;
+    top: 25%;
+    
 }

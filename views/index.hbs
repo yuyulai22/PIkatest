@@ -1,71 +1,55 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+    <link rel="shortcut icon" href="favicon.ico" />
     <meta charset="utf-8">
     <title>Welcome</title>
-      <link rel="stylesheet" href="/stylesheets/bootstrap.css">
-      <link rel="stylesheet" href="/stylesheets/style.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
-  {{> menubar}}
-  
-  <div class="col-md-12">
+    {{> menubar}}
+    <div id='leftbar'></div>
+    <div id='rightbar'></div>
+    <div id='pokebuddy' class='img1'></div>
+    <div class="col-md-12">
         <h3 id="eggname" style="font-family: 'Lato'">
-      Pick a group...
      </h3>
-   
-        <div id="display">
-          
-        </div>
     </div>
-
-  <div class="containerindex">  
-    <h2 class="page-header">Pick your pokemon</h2>
-      <p>Please register using the form below</p>
-<!--       <form method="post" action="/users/profile" enctype='application/x-www-form-urlencoded' class= "formclass">
- -->          <label for="sel1">Pick your egg group:</label>
-            <select id="egggroup" onchange = "displayAllGroup()" name= "egggroup" >
-              <option disabled selected value> ---select a group--- </option>
-              <option value= "13">Ditto</option>
-              <option value= "1">Monster</option>
-              <option value= "7">Grass</option>
-              <option value= "4">Flying</option>
-              <option value= "5">Field</option>
-              <option value= "3">Bug</option>
-              <option value= "2">Water Set 1</option>
-              <option value= "12">Water Set 2</option>
-              <option value= "9">Water Set 3</option>
-              <option value= "10">Mineral</option>
-              <option value= "11">Amorphous</option>
-              <option value= "8">Human-like</option>
-              <option value= "14">Dragon</option>
-              <option value= "6">Fairy</option>
-            </select>
-
-   <!--      <label>Pick your pokemon </label>
-        <input class="form-control" name="email" type="email" placeholder="pokemon"/>
-        <div class="form-group"></div> -->
-          <br>  
-          <label for="sel1">Pokemon picked:</label>
-          <p id="pokeName" name= "pokename"></p>
-          <p id="loading"></p>
-          <p id="counter"></p>
-
+    <div class="containerindex">
+        <h2 class="page-header">Pick your pokemon</h2>
+        <p>Please register using the form below</p>
+        <label for="sel1">Pick your egg group:</label>
+        <select id="egggroup" onchange="displayAllGroup()" name="egggroup">
+            <option disabled selected value> ---select a group--- </option>
+            <option value="13">Ditto</option>
+            <option value="1">Monster</option>
+            <option value="7">Grass</option>
+            <option value="4">Flying</option>
+            <option value="5">Field</option>
+            <option value="3">Bug</option>
+            <option value="2">Water Set 1</option>
+            <option value="12">Water Set 2</option>
+            <option value="9">Water Set 3</option>
+            <option value="10">Mineral</option>
+            <option value="11">Amorphous</option>
+            <option value="8">Human-like</option>
+            <option value="14">Dragon</option>
+            <option value="6">Fairy</option>
+        </select>
         <br>
-          
-      <!--   <input id="regisButt" class="btn btn-primary" type="submit" name="submit" value="Register"/> -->
-
-        <button id = "regisButt">Register</button>
-        
-      </form>
-  </div>
-
-
-
-
+        <label for="sel1">Pokemon picked:</label>
+        <p id="pokeName" name="pokename"></p>
+        <p id="loading"></p>
+        <p id="counter"></p>
+        <br>
+        <div id="display"></div>
+        <button class="btn btn-primary" id="regisButt">Register</button>
+        </form>
+    </div>
 </body>
 <script src="/javascript/poke.js"></script>
 

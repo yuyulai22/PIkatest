@@ -1,5 +1,3 @@
-// error pop ups 
-
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -30,15 +28,38 @@ var mongoose = require('mongoose');
 var db = mongoose.connection;
 var routes = require('./routes/index');
 var users = require('./routes/users');
+//Icon on webpage tab
+
 
 var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+
+// connecting to mongo atlas
+const MongoClient = require('mongodb').MongoClient;
+
+// replace the uri string with your connection string.
+const uri = "mongodb+srv://rajeek:1234@clusterpika-5roqm.mongodb.net/test?retryWrites=true"
+MongoClient.connect(uri, function(err, client) {
+   if(err) {
+        console.log('Error occurred while connecting to MongoDB Atlas...\n',err);
+   }
+   console.log('Connected...');
+   const collection = client.db("starwars").collection("star");
+   // perform actions on the collection object
+   client.close();
+});
+
+
+
+app.use(express.static(__dirname + '/node_modules'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
 
-
+app.set('socketio', io);
 // start of setting up middleware
 //generate a detailed log using the dev format (predefined)
 app.use(logger('dev'));
@@ -91,14 +112,8 @@ app.get('*',function(req,res,next){
 	next();
 })
 
-// app.get('/javascript/poke.js', function(req,res,next){
-// 	res.locals
-// })
-
 app.use('/', routes);
 app.use('/users', users);
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -115,4 +130,39 @@ app.use(function(err, req, res, next) {
   //res.render('error');
 });
 
+currUser = '';
+
+app.get('/username', function(req,res) {
+  console.log('getting all users...')
+ 
+    currUser = req.user.username;
+    res.send(currUser); 
+    console.log('done getting all users...')
+
+});
+console.log(currUser);
+//listen on every connection
+io.on('connection', (socket) => {
+	console.log('New user connected')
+	//default username
+
+	socket.username = currUser;
+
+	//listen on new_message
+	socket.on('new_message', (data) => {
+		//broadcast the new message
+		io.sockets.emit('new_message', { message: data.message, username: socket.username });
+	})
+
+	//listen on typing
+	socket.on('typing', (data) => {
+		socket.broadcast.emit('typing', { username: socket.username })
+	})
+})
+
+const port = process.env.PORT || 3000;
+
+server.listen(port, () => {
+	console.log(`Server is up on port ${port}`);
+})
 module.exports = app;

@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
-mongoose.connect('mongodb://localhost/pikame');
+mongoose.connect("mongodb+srv://rajeek:1234@clusterpika-5roqm.mongodb.net/test?retryWrites=true");
 var db = mongoose.connection;
-
 //user schema 
+
 var UserSchema = mongoose.Schema({
 	username: {
 		type: String,
@@ -35,11 +35,6 @@ module.exports.appendPoke = function(regUser, pokemonname, callback){
 
 module.exports.getUserById = function(id, callback){
 	User.findById(id, callback);
-}
-
-module.exports.gettingUser = function(regUser, callback){
-	console.log('getting user', regUser);
-	console.log('done getting', regUser);
 }
 
 module.exports.getUserByUsername = function(username, callback){

@@ -14,7 +14,7 @@ function getCurrentUser(){
 
 $(function(){
    	//make connection
-	var socket = io.connect('http://localhost:3000')
+	var socket = io.connect('https://thawing-island-64670.herokuapp.com')
 	getCurrentUser();
 	//buttons and inputs
 	var message = $("#message")
@@ -32,7 +32,7 @@ $(function(){
 	socket.on("new_message", (data) => {
 		feedback.html('');
 		message.val('');
-		chatroom.append("<p class='message'>" + currUser + ": " + data.message + "</p>")
+		chatroom.append("<p class='message'>" + data.username+ ": " + data.message + "</p>")
 	})
 
 	//Emit typing
@@ -42,6 +42,6 @@ $(function(){
 
 	//Listen on typing
 	socket.on('typing', (data) => {
-		feedback.html("<p><i>" + currUser + " is typing a message..." + "</i></p>")
+		feedback.html("<p><i>" + data.username + " is typing a message..." + "</i></p>")
 	})
 });
